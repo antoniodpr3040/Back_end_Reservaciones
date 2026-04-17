@@ -1,0 +1,28 @@
+[
+    {
+        "id": 1,
+        "name": "Diego 5060",
+        "email": "diegodapro3040@outlook.com",
+        "provider": "microsoft",
+        "role": "user",
+        "microsoft_auth": {
+            "access_token": "EwBoBMl6BAAU9BatlgMxts2T1B5e3Mucgfs4jcAAAUcCMywNHENylYAYIB0B+K+eTlEJNgMQTrenwH+pRs1I7PNxYogCEffrbdVdLBAwIBMDTzZpApD6M6c4cmN/ahJmF6vI5IBZ9Dg7Zun70LmsJ4UlMPJ0H3z3KmB/zXaOyRxVFhrIKhaUtuSxD8aOlOeR9Q8CmNzUapEC1GId7Fe02O+4yMIXqoJ84Rl9CcjdCx9PICZ2BQM0n4UnV6MAI2e8PFu8VHOKRZrmhmksrtl1Csy9yWloyyQ35kt4ONjJawE1cihm+uYdqvnm42IorWXbyzuxPHX5j5CwK4wpTw7p4DpX7rKLh0Etun/0gWSiCYeCW6LykssVgGGy5KC+U1MQZgAAECR3vKY/HihxfsKIuAXKnqMwA4m6ymamqW8ondFK0cDVvm3F6EV6yRbx7vupJlXdbREr2iMZk8s6dLSe3V5ysKAYM4OJFbWXJGrrYoBd1efF5A7t1zbrMZMI66HanysdqEaAUmxieytyhmQ7imB16VFtoiQ4NSnAG/KpVab2bzt6fT+nloaqEwBubFw1MwcRteOxfSHh8igwuhwIXEnmIklbk+/GGVmzUYtgCy+IfhzmlRV3nQf315bqQtam4j6cKDMjSk1irxDFtlThrtP2aKwfGyS2xcENpU+vfErmPy9hmchAzGwTilxhjWL4MLmR+DhwOZoJAo7taG8FAiT61XcNCorCrsMyI7oL1455/42ARZYI+weLmauJ9NmgriwLH53s+gfcWMm/bBde3666fO2s6e8fRtoDA5wGaUzmQD3VQl3OF365dRntNLvQXfIaTgQPpYl9uN18nH+4DpfPv6pv93AielT/+ZrH1EdJmgCLQ5Ryg9pWUVTo6i0ePN8nKaXBV30rAB9CI+8PnMYqyTYgnMp+M7FH57bToNT1njuJibB30li1apvvQamYfS73VxwDywiDxgMqWS0U/87PDjSItgAZK/gAZFHzrTsbCYtUVkrq+Au1yNnK7KqUV69DS7VTg7EWu0kcV9tUzii+GBMZpul3MN6fOLAhaO70ZPrKbJd8a8SAenj+UjKRLS2USAc9T/Z6FbC4UmodowsmyVJoqpRCbNr2DHzAtVBl4cNY7bLNidqStlh8kT6QqO/XhogodraLDK8emeydrRFsTyLIpa0xD6CZoEjzq9UsFHG8p8X/zTG7aWzooH3XUjs596sxu6EKEPSF8ef6Hjwf8zzazvAVUMoRMOMPhIdXKgve2142YJzG9DyVzrOu4eXYsuxHdzCxhC9cMmuuwxYhSSoASkA89ExjP3Jf3JnPOlzHGuK/c2AebbEu1GcY71wZvWvxDucsUZ22BmDWKFLsUXDFQvj+a7Q9GKWiYPCY05shQAVrs5bbB45vL5hT8ZvhVBnr6rAo0QIGSjt6xdAtuCtpkXWtuaS4ap2/uS9ey5N0ifN4xWf2Q4Yi5cN6VSml1soWhNdYUMXZ3e5pNUxHESCGQ2gD",
+            "expires_at": "2026-04-15T23:51:21.200471+00:00",
+            "scope": "openid profile email Calendars.ReadWrite",
+            "refresh_token": "M.C520_SN1.0.U.-CnwOxdVTI!WaOpuaE8rrLWvxw3ta2B32rGPqKFqPu6aQ7xb5i8dLTyGHfF0loAeDSjcguQk*qOx6gQ2XreVtuICRKF*2NIdUNg8gnUiozt0H2hy2mQ4W!c8ecF4Y9l1xw6yIZG*AUijpDY7pqA70Bln1Nb*BaH2qrqO5NkGp7xbdCB8PvvitY5PnDlR0Gi2LXVDZPAGTTXT0cOCrv9i9G79SWkXhFq2dFLCYGxJ5gVnYBE7b6pIqXP4P4D1Rcgchf7R6woHSumoQygvKWGWDkZBmCCoz*wcreQWehF!etuGvBOBgXat1KUTXPnO8xD4ZSkDye5uyEZmMwxAUMSBH8zw5aTmrGgCgR0hoaDyKSiAcp9JbJxHRZcHfy!gGVBJV7GNhj8X33Mt*xlgSYJeAiKk$"
+        }
+    },
+    {
+        "id": 2,
+        "name": "Fer Sorto",
+        "email": "fersorto27@gmail.com",
+        "provider": "microsoft",
+        "role": "user",
+        "microsoft_auth": {
+            "access_token": "EwA4BMl6BAAU9BatlgMxts2T1B5e3Mucgfs4jcAAAdPDXeUTS50y+ex7iBmlRSYY66FQYoOOYQatnnqfdfYr6htk1Tt1VfqeP7obwqA/nuIYoPOCytkPWU2Qn+OCfZ9ncuNXg7CHQVkyGdFx1M4XOy+qNywF7HSFVXd/QaVPyg9xvqQb8Fcfr8uY3H7Oo/glUx5oZduetLTTMjbNEFEX6bDpMRUzsINJF2YsV7rZgqWA4BsnJi6rEZ5+I0pG7fkcESVZWXN+eqn7hPSZnx1FSOstC4huUG+pV7YzXBp2yiijTN2dd21VAFPzuSoLOo10cQ7rwrKVmdX/vyAmD4AEmTLYobT1NPiRY7V9BdD608VlDFamU9lq7M6IhaYoh0oQZgAAEFTkyzkaGYUJxjHZZCefUUIAA58s6BsF0MX66Wbr8qpinc+6h/ZIL4zE+VCywOJHVxZfnSY+uv/J+/L6HHMWh3Cl8FF1Iq8wKKcesRIZCSGKz7FdRTAxcdfgBg9ciyp9rlHkDfkgyIKf+v5ooQgPUg3zpxuI/V6I8TbvSiQHPMrsCscdaNqcSlm+Ku3i4UM0YIHJgOEd9omqruyqnVhllHMPxERddVVDH2eD9bnaRGwyGiUZgQS473GGnnS+Yc8T/rCpA5V/UTgCAlreq01cHYpE7tRSdMXeVtVY4DTuYWY6GE2vo/H6Cl0QoQ1OroBqSlTyzgy3VhH6qaq7S1qD7avhaPT4GNtWykspGRLQ/bk37o6vIkj1XbJ6Tzx2cyVEi4Dj/nEUuCHPGW2XNphCZdE6mzzSviJmFy9nmAzOXtn3xB0rwDP+wcetpZc2v3C8Imln20ZrQFovVS/w/eLVFQ5ZpcvOdY23zLLMe5reIwwSX2QQCx2XDRH3NXct/c44aTx+c3BfywZfX8rz47Wh0Nj8c08zyzDFhknAgA5FFt1q+TstoaEo6trLA8pcm+LStRuTTtmYY20P62x5kuo41sHKd0ZiM2Xe2yP2koM7//8GBt08ovGAoFisEyVIIs2AKxZZ7HIZy9QMbswPIC0ynSBP9Hzwcaxw9HPiL/9Jf7f7KadEkHC26eDV+fk0d0UEak9Xj3j7js1NyORD52uMVJKr+fYpcoaMT3ILnnF7qAjYlV/WNGG8jV0IapV1OsV+MvHWE5x9bj0RS3MCIlMAfa4Zt/Q0gK32fN+75s6Y4Vo8D+Wsl9/oseM2pjrijsL5WLC6EKSmTrDbOo6O1u7BAFG7udEnPdbLTyiVXLQKSPBSDkdbAI6rO0wi4elH9wHeCzuIggbjh+PTU3eZboPgDznWxKNIkWnVallc7EyvaDIypnuUOBOVC0FTu7pcDUcW55hwpYfvF/6WTM/Hor/v8DEcuftPknQ25cgfaZbw/yztMH56uyLbKM7NzDxQnufSCVT/V5qXIgyI0WWYfEZkVgUm70ID",
+            "expires_at": "2026-04-15T17:49:50.667240+00:00",
+            "scope": "openid profile email Calendars.ReadWrite",
+            "refresh_token": "M.C526_BAY.0.U.-CrtGetbbzKdCfPAFeU3VxLNXm0ILCEa2Gb!jIFMdS2lPQaC2iP2f!QBVPVZFNHHIBw6HG5VTcyv!2BcIX9ZB6TPuyHAeQEZEpQTTD!lNFrTG*ueNSiWo3s3bsdigMqUCp4sbkTKAVMmX7fVJPjkgldY04PmKNgooIR4tNWR2P0ffHd0!ias6o*atiYdZWQyC4IJwwTNvBo7a7cqYYwGl9aqECjDGDTJD!!cNPmnAXkBE5nW7lIhpcS51h1FP5EF!A8pjwyHkIdMkpDSgO88VcISd!1lurf6XTKcyCb1mUMemWRaRH5LYI8T!FU8hKWadgIHBT8pJ7PSP0M6e*mXmmqvt1et!NeH9QIrTiOwnsZOpD8zZhI2ogApdv!4PnDGHkw$$"
+        }
+    }
+]

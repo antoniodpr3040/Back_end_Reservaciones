@@ -1,0 +1,22 @@
+# Entornos virtuales
+venv/
+.env/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Logs
+*.log
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+#Privado
+.env
+
+# PyCharm
+.idea/
+
