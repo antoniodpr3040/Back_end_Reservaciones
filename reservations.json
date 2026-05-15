@@ -1,63 +1,143 @@
 [
     {
-        "reservation_id": "7f893f27-afcc-41d7-9901-547316fb6d97",
-        "user_id": 3,
-        "user_email": "brockolle@outlook.com",
-        "event_id": "AQMkADAwATM0MDAAMS0yY2RmLTI2MGUtMDACLTAwCgBGAAADJIjrp1mNokWbVJJJ3a7P2QcAnZ4SSB-XP0W8eqLYgmrL6wAAAgENAAAAnZ4SSB-XP0W8eqLYgmrL6wAFOs2kZQAAAA==",
-        "web_link": "https://outlook.live.com/owa/?itemid=AQMkADAwATM0MDAAMS0yY2RmLTI2MGUtMDACLTAwCgBGAAADJIjrp1mNokWbVJJJ3a7P2QcAnZ4SSB%2FXP0W8eqLYgmrL6wAAAgENAAAAnZ4SSB%2FXP0W8eqLYgmrL6wAFOs2kZQAAAA%3D%3D&exvsurl=1&path=/calendar/item",
-        "title": "Reserva - Sala de mentoria",
-        "description": "Reservacion creada desde DoDate.\nUsuario: Ivan Figueroa\nCorreo: brockolle@outlook.com",
-        "start": "2026-04-20T09:00:00",
-        "end": "2026-04-20T10:00:00",
-        "timezone": "Central America Standard Time",
-        "location": "Sala de mentoria",
-        "attendees": [
-            "brockolle@outlook.com"
-        ],
-        "status": "cancelled",
-        "created_at": "2026-04-17T16:44:30.521498+00:00",
-        "updated_at": "2026-04-17T16:45:16.249174+00:00",
-        "cancelled_at": "2026-04-17T16:45:16.247808+00:00",
-        "cancellation_reason": "xd"
-    },
-    {
-        "reservation_id": "7dbd1e2b-f8ed-498b-a6ce-6fb5d026526a",
-        "user_id": 3,
-        "user_email": "brockolle@outlook.com",
-        "event_id": "AQMkADAwATM0MDAAMS0yY2RmLTI2MGUtMDACLTAwCgBGAAADJIjrp1mNokWbVJJJ3a7P2QcAnZ4SSB-XP0W8eqLYgmrL6wAAAgENAAAAnZ4SSB-XP0W8eqLYgmrL6wAFOs2kZgAAAA==",
-        "web_link": "https://outlook.live.com/owa/?itemid=AQMkADAwATM0MDAAMS0yY2RmLTI2MGUtMDACLTAwCgBGAAADJIjrp1mNokWbVJJJ3a7P2QcAnZ4SSB%2FXP0W8eqLYgmrL6wAAAgENAAAAnZ4SSB%2FXP0W8eqLYgmrL6wAFOs2kZgAAAA%3D%3D&exvsurl=1&path=/calendar/item",
-        "title": "Reserva - Laboratorio",
-        "description": "Reservacion creada desde DoDate.\nUsuario: Ivan Figueroa\nCorreo: brockolle@outlook.com",
-        "start": "2026-04-17T15:00:00",
-        "end": "2026-04-17T16:00:00",
-        "timezone": "Central America Standard Time",
-        "location": "Laboratorio",
-        "attendees": [
-            "brockolle@outlook.com"
-        ],
-        "status": "cancelled",
-        "created_at": "2026-04-17T16:46:05.554661+00:00",
-        "updated_at": "2026-04-17T16:46:50.764499+00:00",
-        "cancelled_at": "2026-04-17T16:46:50.763711+00:00",
-        "cancellation_reason": "ko"
-    },
-    {
-        "reservation_id": "e054f182-7af9-49b5-af1f-6e4d689d4d4a",
+        "reservation_id": "ef9b19e5-f292-4951-9c96-4970dc9ea593",
         "user_id": 1,
         "user_email": "diegodapro3040@outlook.com",
-        "event_id": "AQMkADAwATNiZmYAZC0zNmVkLWJkM2UtMDACLTAwCgBGAAADSokmWIwkTE6ojhng4ACgXb4HAMpjvow-ZGlOkMc6vk6ETpcAAAIBDQAAAMpjvow-ZGlOkMc6vk6ETpcABOw2yvAAAAA=",
-        "web_link": "https://outlook.live.com/owa/?itemid=AQMkADAwATNiZmYAZC0zNmVkLWJkM2UtMDACLTAwCgBGAAADSokmWIwkTE6ojhng4ACgXb4HAMpjvow%2FZGlOkMc6vk6ETpcAAAIBDQAAAMpjvow%2FZGlOkMc6vk6ETpcABOw2yvAAAAA%3D&exvsurl=1&path=/calendar/item",
+        "event_id": "AQMkADAwATNiZmYAZC0zNmVkLWJkM2UtMDACLTAwCgBGAAADSokmWIwkTE6ojhng4ACgXb4HAMpjvow-ZGlOkMc6vk6ETpcAAAIBDQAAAMpjvow-ZGlOkMc6vk6ETpcABOw2yvIAAAA=",
+        "web_link": "https://outlook.live.com/owa/?itemid=AQMkADAwATNiZmYAZC0zNmVkLWJkM2UtMDACLTAwCgBGAAADSokmWIwkTE6ojhng4ACgXb4HAMpjvow%2FZGlOkMc6vk6ETpcAAAIBDQAAAMpjvow%2FZGlOkMc6vk6ETpcABOw2yvIAAAA%3D&exvsurl=1&path=/calendar/item",
         "title": "Reserva - Biblioteca",
         "description": "Reservacion creada desde DoDate.\nUsuario: Diego 5060\nCorreo: diegodapro3040@outlook.com",
-        "start": "2026-04-17T11:30:00",
-        "end": "2026-04-17T14:30:00",
+        "start": "2026-04-20T05:00:00",
+        "end": "2026-04-20T06:00:00",
+        "timezone": "Central America Standard Time",
+        "location": "Biblioteca",
+        "attendees": [
+            "diegodapro3040@outlook.com"
+        ],
+        "status": "cancelled",
+        "created_at": "2026-04-20T02:34:34.037719+00:00",
+        "updated_at": "2026-04-20T02:53:14.660992+00:00",
+        "cancelled_at": "2026-04-20T02:53:14.660168+00:00",
+        "cancellation_reason": "vds"
+    },
+    {
+        "reservation_id": "180877de-9bde-41f9-ac98-7a05fd5a1391",
+        "user_id": 1,
+        "user_email": "diegodapro3040@outlook.com",
+        "event_id": "AQMkADAwATNiZmYAZC0zNmVkLWJkM2UtMDACLTAwCgBGAAADSokmWIwkTE6ojhng4ACgXb4HAMpjvow-ZGlOkMc6vk6ETpcAAAIBDQAAAMpjvow-ZGlOkMc6vk6ETpcABOw2yvMAAAA=",
+        "web_link": "https://outlook.live.com/owa/?itemid=AQMkADAwATNiZmYAZC0zNmVkLWJkM2UtMDACLTAwCgBGAAADSokmWIwkTE6ojhng4ACgXb4HAMpjvow%2FZGlOkMc6vk6ETpcAAAIBDQAAAMpjvow%2FZGlOkMc6vk6ETpcABOw2yvMAAAA%3D&exvsurl=1&path=/calendar/item",
+        "title": "Reserva - Biblioteca",
+        "description": "Reservacion creada desde DoDate.\nUsuario: Diego 5060\nCorreo: diegodapro3040@outlook.com",
+        "start": "2026-04-20T06:30:00",
+        "end": "2026-04-20T08:30:00",
+        "timezone": "Central America Standard Time",
+        "location": "Biblioteca",
+        "attendees": [
+            "diegodapro3040@outlook.com"
+        ],
+        "status": "cancelled",
+        "created_at": "2026-04-20T02:52:24.304710+00:00",
+        "updated_at": "2026-04-20T02:53:00.558818+00:00",
+        "cancelled_at": "2026-04-20T02:53:00.558026+00:00",
+        "cancellation_reason": "afs"
+    },
+    {
+        "reservation_id": "794e6c56-f4e2-4608-9ba2-f6f52d854f3f",
+        "user_id": 1,
+        "user_email": "diegodapro3040@outlook.com",
+        "event_id": "AQMkADAwATNiZmYAZC0zNmVkLWJkM2UtMDACLTAwCgBGAAADSokmWIwkTE6ojhng4ACgXb4HAMpjvow-ZGlOkMc6vk6ETpcAAAIBDQAAAMpjvow-ZGlOkMc6vk6ETpcABOw2yvQAAAA=",
+        "web_link": "https://outlook.live.com/owa/?itemid=AQMkADAwATNiZmYAZC0zNmVkLWJkM2UtMDACLTAwCgBGAAADSokmWIwkTE6ojhng4ACgXb4HAMpjvow%2FZGlOkMc6vk6ETpcAAAIBDQAAAMpjvow%2FZGlOkMc6vk6ETpcABOw2yvQAAAA%3D&exvsurl=1&path=/calendar/item",
+        "title": "Reserva - Biblioteca",
+        "description": "Reservacion creada desde DoDate.\nUsuario: Diego 5060\nCorreo: diegodapro3040@outlook.com",
+        "start": "2026-04-20T06:30:00",
+        "end": "2026-04-20T08:30:00",
         "timezone": "Central America Standard Time",
         "location": "Biblioteca",
         "attendees": [
             "diegodapro3040@outlook.com"
         ],
         "status": "created",
-        "created_at": "2026-04-17T16:46:51.687998+00:00",
-        "updated_at": "2026-04-17T16:46:51.687998+00:00"
+        "created_at": "2026-04-20T02:57:14.819260+00:00",
+        "updated_at": "2026-04-20T02:57:14.819260+00:00"
+    },
+    {
+        "reservation_id": "0a37a8ef-2c15-4bc2-9025-c5a3dbaac52b",
+        "user_id": 1,
+        "user_email": "diegodapro3040@outlook.com",
+        "event_id": "AQMkADAwATNiZmYAZC0zNmVkLWJkM2UtMDACLTAwCgBGAAADSokmWIwkTE6ojhng4ACgXb4HAMpjvow-ZGlOkMc6vk6ETpcAAAIBDQAAAMpjvow-ZGlOkMc6vk6ETpcABO7ssqEAAAA=",
+        "web_link": "https://outlook.live.com/owa/?itemid=AQMkADAwATNiZmYAZC0zNmVkLWJkM2UtMDACLTAwCgBGAAADSokmWIwkTE6ojhng4ACgXb4HAMpjvow%2FZGlOkMc6vk6ETpcAAAIBDQAAAMpjvow%2FZGlOkMc6vk6ETpcABO7ssqEAAAA%3D&exvsurl=1&path=/calendar/item",
+        "title": "Reserva - Biblioteca",
+        "description": "Reservacion creada desde DoDate.\nUsuario: Diego 5060\nCorreo: diegodapro3040@outlook.com",
+        "start": "2026-04-20T10:30:00",
+        "end": "2026-04-20T12:30:00",
+        "timezone": "Central America Standard Time",
+        "location": "Biblioteca",
+        "attendees": [
+            "diegodapro3040@outlook.com"
+        ],
+        "status": "created",
+        "created_at": "2026-04-20T15:41:20.110799+00:00",
+        "updated_at": "2026-04-20T15:41:20.110799+00:00"
+    },
+    {
+        "reservation_id": "34801b5f-4e90-4e35-83c1-604153079604",
+        "user_id": 1,
+        "user_email": "diegodapro3040@outlook.com",
+        "event_id": "AQMkADAwATNiZmYAZC0zNmVkLWJkM2UtMDACLTAwCgBGAAADSokmWIwkTE6ojhng4ACgXb4HAMpjvow-ZGlOkMc6vk6ETpcAAAIBDQAAAMpjvow-ZGlOkMc6vk6ETpcABO7ssqIAAAA=",
+        "web_link": "https://outlook.live.com/owa/?itemid=AQMkADAwATNiZmYAZC0zNmVkLWJkM2UtMDACLTAwCgBGAAADSokmWIwkTE6ojhng4ACgXb4HAMpjvow%2FZGlOkMc6vk6ETpcAAAIBDQAAAMpjvow%2FZGlOkMc6vk6ETpcABO7ssqIAAAA%3D&exvsurl=1&path=/calendar/item",
+        "title": "Reserva - Laboratorio",
+        "description": "Reservacion creada desde DoDate.\nUsuario: Diego 5060\nCorreo: diegodapro3040@outlook.com",
+        "start": "2026-04-20T16:00:00",
+        "end": "2026-04-20T18:30:00",
+        "timezone": "Central America Standard Time",
+        "location": "Laboratorio",
+        "attendees": [
+            "diegodapro3040@outlook.com"
+        ],
+        "status": "cancelled",
+        "created_at": "2026-04-20T21:20:27.708857+00:00",
+        "updated_at": "2026-04-20T21:20:54.250072+00:00",
+        "cancelled_at": "2026-04-20T21:20:54.248784+00:00",
+        "cancellation_reason": "Ufjhdhdheh"
+    },
+    {
+        "reservation_id": "6d7c17cf-5770-403c-8c04-33eebad93966",
+        "user_id": 1,
+        "user_email": "diegodapro3040@outlook.com",
+        "event_id": "AQMkADAwATNiZmYAZC0zNmVkLWJkM2UtMDACLTAwCgBGAAADSokmWIwkTE6ojhng4ACgXb4HAMpjvow-ZGlOkMc6vk6ETpcAAAIBDQAAAMpjvow-ZGlOkMc6vk6ETpcABO9cuQcAAAA=",
+        "web_link": "https://outlook.live.com/owa/?itemid=AQMkADAwATNiZmYAZC0zNmVkLWJkM2UtMDACLTAwCgBGAAADSokmWIwkTE6ojhng4ACgXb4HAMpjvow%2FZGlOkMc6vk6ETpcAAAIBDQAAAMpjvow%2FZGlOkMc6vk6ETpcABO9cuQcAAAA%3D&exvsurl=1&path=/calendar/item",
+        "title": "Reserva - Biblioteca",
+        "description": "Reservacion creada desde DoDate.\nUsuario: Diego 5060\nCorreo: diegodapro3040@outlook.com",
+        "start": "2026-04-21T05:30:00",
+        "end": "2026-04-21T08:30:00",
+        "timezone": "Central America Standard Time",
+        "location": "Biblioteca",
+        "attendees": [
+            "diegodapro3040@outlook.com"
+        ],
+        "status": "cancelled",
+        "created_at": "2026-04-21T05:58:18.376977+00:00",
+        "updated_at": "2026-04-21T05:58:50.226459+00:00",
+        "cancelled_at": "2026-04-21T05:58:50.225610+00:00",
+        "cancellation_reason": "xd lol 3d nx pmjewufhuiansip"
+    },
+    {
+        "reservation_id": "92aad8a4-81e2-46a3-8ff0-15542131f86d",
+        "user_id": 1,
+        "user_email": "diegodapro3040@outlook.com",
+        "event_id": "AQMkADAwATNiZmYAZC0zNmVkLWJkM2UtMDACLTAwCgBGAAADSokmWIwkTE6ojhng4ACgXb4HAMpjvow-ZGlOkMc6vk6ETpcAAAIBDQAAAMpjvow-ZGlOkMc6vk6ETpcABO9l3osAAAA=",
+        "web_link": "https://outlook.live.com/owa/?itemid=AQMkADAwATNiZmYAZC0zNmVkLWJkM2UtMDACLTAwCgBGAAADSokmWIwkTE6ojhng4ACgXb4HAMpjvow%2FZGlOkMc6vk6ETpcAAAIBDQAAAMpjvow%2FZGlOkMc6vk6ETpcABO9l3osAAAA%3D&exvsurl=1&path=/calendar/item",
+        "title": "Reserva - Biblioteca",
+        "description": "Reservacion creada desde DoDate.\nUsuario: Diego 5060\nCorreo: diegodapro3040@outlook.com",
+        "start": "2026-04-22T10:30:00",
+        "end": "2026-04-22T12:00:00",
+        "timezone": "Central America Standard Time",
+        "location": "Biblioteca",
+        "attendees": [
+            "diegodapro3040@outlook.com"
+        ],
+        "status": "created",
+        "created_at": "2026-04-22T16:22:48.960942+00:00",
+        "updated_at": "2026-04-22T16:22:48.960942+00:00"
     }
 ]

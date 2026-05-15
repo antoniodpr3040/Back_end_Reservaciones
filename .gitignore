@@ -20,6 +20,7 @@ Thumbs.db
 # PyCharm
 .idea/
 
-#
-
+#bases de datos
+.users.json
+.reservations.json
 
