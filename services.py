@@ -1,10 +1,12 @@
 import json
 import os
+import tempfile
 from datetime import datetime, timezone
 from typing import Any
 
-DB_FILE = "users.json"
-RESERVATIONS_FILE = "reservations.json"
+_TMP = "/tmp" if os.path.isdir("/tmp") else tempfile.gettempdir()
+DB_FILE = os.path.join(_TMP, "users.json")
+RESERVATIONS_FILE = os.path.join(_TMP, "reservations.json")
 
 
 def read_users():

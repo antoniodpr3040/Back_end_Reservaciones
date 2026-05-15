@@ -1,6 +1,5 @@
 import re
 
-import uvicorn
 from fastapi import Depends, FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -47,4 +46,5 @@ def get_me(current_user: dict = Depends(get_current_user)):
 
 
 if __name__ == "__main__":
+    import uvicorn
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)

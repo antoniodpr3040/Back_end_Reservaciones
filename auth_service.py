@@ -1,4 +1,6 @@
 import base64
+import hashlib
+import hmac
 import json
 import secrets
 from datetime import datetime, timedelta, timezone
@@ -20,10 +22,36 @@ from services import get_or_create_user, update_user_microsoft_tokens
 
 router = APIRouter()
 
-
 MICROSOFT_SCOPES = "openid profile email offline_access Calendars.ReadWrite"
 
-oauth_state_store: dict[str, dict[str, str]] = {}
+
+def _create_oauth_state(frontend_url: str, redirect_path: str) -> str:
+    secret = get_env("SECRET_KEY") or "insecure_fallback"
+    nonce = secrets.token_urlsafe(16)
+    data = json.dumps(
+        {"f": frontend_url, "p": redirect_path, "n": nonce},
+        separators=(",", ":"),
+    )
+    payload = base64.urlsafe_b64encode(data.encode()).decode().rstrip("=")
+    sig = hmac.new(secret.encode(), payload.encode(), hashlib.sha256).hexdigest()[:24]
+    return f"{payload}.{sig}"
+
+
+def _parse_oauth_state(state: str) -> dict | None:
+    secret = get_env("SECRET_KEY") or "insecure_fallback"
+    try:
+        payload, sig = state.rsplit(".", 1)
+        expected = hmac.new(secret.encode(), payload.encode(), hashlib.sha256).hexdigest()[:24]
+        if not hmac.compare_digest(sig, expected):
+            return None
+        padded = payload + "=" * (-len(payload) % 4)
+        data = json.loads(base64.urlsafe_b64decode(padded).decode())
+        return {
+            "frontend_url": data.get("f", ""),
+            "redirect_path": data.get("p", "/dashboard"),
+        }
+    except Exception:
+        return None
 
 
 def _resolve_frontend_url(
@@ -87,11 +115,10 @@ def login_microsoft(
             detail="Faltan variables de entorno de Microsoft",
         )
 
-    state = secrets.token_urlsafe(32)
-    oauth_state_store[state] = {
-        "frontend_url": _resolve_frontend_url(request, frontend_url),
-        "redirect_path": _normalize_redirect_path(redirect_path),
-    }
+    state = _create_oauth_state(
+        frontend_url=_resolve_frontend_url(request, frontend_url),
+        redirect_path=_normalize_redirect_path(redirect_path),
+    )
 
     params = {
         "client_id": settings["client_id"],
@@ -121,10 +148,12 @@ async def auth_callback(
             detail=f"Microsoft devolvio error: {error} - {error_description}",
         )
 
-    if not state or state not in oauth_state_store:
+    if not state:
         raise HTTPException(status_code=400, detail="State invalido o ausente")
 
-    state_context = oauth_state_store.pop(state)
+    state_context = _parse_oauth_state(state)
+    if not state_context:
+        raise HTTPException(status_code=400, detail="State invalido o ausente")
 
     if (
         not settings["client_id"]
