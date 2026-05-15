@@ -73,6 +73,15 @@ class OutlookReservationResponse(BaseModel):
     message: str
 
 
+class OccupiedSlot(BaseModel):
+    reservation_id: str
+    title: str
+    location: Optional[str] = None
+    start: datetime
+    end: datetime
+    status: str
+
+
 class ReservationCancel(BaseModel):
     model_config = ConfigDict(
         json_schema_extra={

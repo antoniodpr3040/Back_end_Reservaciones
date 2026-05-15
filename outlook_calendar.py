@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 from fastapi import APIRouter, Body, Depends, HTTPException, status
 
 from schemas import (
+    OccupiedSlot,
     OutlookReservationResponse,
     ReservationCancel,
     ReservationRecord,
@@ -15,8 +16,10 @@ from schemas import (
 )
 from security import get_current_user
 from services import (
+    check_time_slot_conflict,
     get_user_by_id,
     get_user_reservation_record,
+    list_all_active_reservation_records,
     list_user_reservation_records,
     save_reservation_record,
     update_reservation_record,
@@ -241,6 +244,16 @@ def _build_event_path(event_id: str) -> str:
 
 
 @router.get(
+    "/reservations/occupied",
+    response_model=list[OccupiedSlot],
+)
+async def list_occupied_slots(
+    current_user: dict = Depends(get_current_user),
+):
+    return list_all_active_reservation_records()
+
+
+@router.get(
     "/reservations",
     response_model=list[ReservationRecord],
 )
@@ -262,6 +275,16 @@ async def create_outlook_reservation(
 ):
     current_user = get_user_by_id(current_user["id"]) or current_user
     _ensure_microsoft_auth(current_user)
+
+    if reservation.location and check_time_slot_conflict(
+        location=reservation.location,
+        start=reservation.start.isoformat(),
+        end=reservation.end.isoformat(),
+    ):
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail="El espacio ya tiene una reservacion activa en ese horario.",
+        )
 
     reservation_id = reservation.reservation_id or str(uuid4())
     event_payload = _build_event_payload(reservation)

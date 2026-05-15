@@ -260,6 +260,40 @@ def get_user_reservation_record(user_id, reservation_id: str) -> dict | None:
         conn.close()
 
 
+def list_all_active_reservation_records() -> list[dict]:
+    _ensure_schema()
+    conn = _get_conn()
+    try:
+        with conn.cursor() as cur:
+            cur.execute(
+                "SELECT * FROM reservations WHERE status != 'cancelled' ORDER BY start_time ASC"
+            )
+            return [_to_reservation(row) for row in cur.fetchall()]
+    finally:
+        conn.close()
+
+
+def check_time_slot_conflict(location: str, start: str, end: str) -> bool:
+    _ensure_schema()
+    conn = _get_conn()
+    try:
+        with conn.cursor() as cur:
+            cur.execute(
+                """
+                SELECT COUNT(*) AS cnt FROM reservations
+                WHERE status != 'cancelled'
+                AND LOWER(TRIM(location)) = LOWER(TRIM(%s))
+                AND start_time < %s
+                AND end_time > %s
+                """,
+                (location, end, start),
+            )
+            row = cur.fetchone()
+            return (row["cnt"] if row else 0) > 0
+    finally:
+        conn.close()
+
+
 def list_user_reservation_records(user_id) -> list[dict]:
     _ensure_schema()
     conn = _get_conn()
