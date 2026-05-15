@@ -7,7 +7,7 @@ DEFAULT_FRONTEND_URL = "http://localhost:3000"
 
 
 def _load_env() -> None:
-    load_dotenv(override=True)
+    load_dotenv()
 
 
 def get_env(name: str, default: str | None = None) -> str | None:

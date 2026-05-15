@@ -23,7 +23,7 @@ from services import (
     update_user_microsoft_tokens,
 )
 
-load_dotenv(override=True)
+load_dotenv()
 
 router = APIRouter(prefix="/outlook", tags=["outlook"])
 
