@@ -1,5 +1,6 @@
 # Entornos virtuales
 venv/
+.venv/
 .env/
 
 # Python
@@ -24,3 +25,5 @@ Thumbs.db
 .users.json
 .reservations.json
 
+.vercel
+.env*.local
