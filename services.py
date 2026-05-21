@@ -1,5 +1,6 @@
+import hashlib
 import os
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from typing import Any
 
 import psycopg2
@@ -266,9 +267,112 @@ def list_all_active_reservation_records() -> list[dict]:
     try:
         with conn.cursor() as cur:
             cur.execute(
-                "SELECT * FROM reservations WHERE status != 'cancelled' ORDER BY start_time ASC"
+                "SELECT * FROM reservations WHERE status NOT IN ('cancelled', 'failed') ORDER BY start_time ASC"
             )
             return [_to_reservation(row) for row in cur.fetchall()]
+    finally:
+        conn.close()
+
+
+def try_reserve_slot(
+    reservation_id: str,
+    user_id: int,
+    user_email: str | None,
+    location: str,
+    start: str,
+    end: str,
+    title: str,
+    description: str | None,
+    timezone_str: str,
+    attendees: list,
+) -> bool:
+    """
+    Atomically checks for time-slot conflicts and, if none exist, inserts a 'pending'
+    reservation to claim the slot. Uses a PostgreSQL advisory lock on the location so
+    two simultaneous requests for the same space cannot both pass the conflict check.
+    Returns True if the slot was successfully claimed, False if there is a conflict.
+    """
+    _ensure_schema()
+    lock_key = int(hashlib.md5(location.lower().strip().encode()).hexdigest()[:16], 16) % (2**31 - 1)
+    timestamp = datetime.now(timezone.utc).isoformat()
+    # Treat pending records older than 10 minutes as stale so they don't block slots
+    stale_cutoff = (datetime.now(timezone.utc) - timedelta(minutes=10)).isoformat()
+    conn = _get_conn()
+    try:
+        with conn.cursor() as cur:
+            cur.execute("SELECT pg_advisory_xact_lock(%s)", (lock_key,))
+            cur.execute(
+                """
+                SELECT COUNT(*) AS cnt FROM reservations
+                WHERE status NOT IN ('cancelled', 'failed')
+                AND (status != 'pending' OR created_at > %s)
+                AND LOWER(TRIM(location)) = LOWER(TRIM(%s))
+                AND start_time < %s
+                AND end_time > %s
+                """,
+                (stale_cutoff, location, end, start),
+            )
+            row = cur.fetchone()
+            if (row["cnt"] if row else 0) > 0:
+                conn.rollback()
+                return False
+            cur.execute(
+                """
+                INSERT INTO reservations (
+                    reservation_id, user_id, user_email, event_id, web_link,
+                    title, description, start_time, end_time, timezone,
+                    location, attendees, status, created_at, updated_at
+                ) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+                """,
+                (
+                    reservation_id,
+                    user_id,
+                    user_email,
+                    None,
+                    None,
+                    title,
+                    description,
+                    start,
+                    end,
+                    timezone_str,
+                    location,
+                    psycopg2.extras.Json(attendees or []),
+                    "pending",
+                    timestamp,
+                    timestamp,
+                ),
+            )
+        conn.commit()
+        return True
+    except Exception:
+        conn.rollback()
+        raise
+    finally:
+        conn.close()
+
+
+def confirm_reservation_record(
+    reservation_id: str,
+    event_id: str,
+    web_link: str | None,
+) -> dict | None:
+    _ensure_schema()
+    timestamp = datetime.now(timezone.utc).isoformat()
+    conn = _get_conn()
+    try:
+        with conn.cursor() as cur:
+            cur.execute(
+                """
+                UPDATE reservations
+                SET event_id = %s, web_link = %s, status = 'created', updated_at = %s
+                WHERE reservation_id = %s
+                RETURNING *
+                """,
+                (event_id, web_link, timestamp, reservation_id),
+            )
+            row = _to_reservation(cur.fetchone())
+        conn.commit()
+        return row
     finally:
         conn.close()
 
@@ -300,7 +404,7 @@ def list_user_reservation_records(user_id) -> list[dict]:
     try:
         with conn.cursor() as cur:
             cur.execute(
-                "SELECT * FROM reservations WHERE user_id = %s ORDER BY created_at DESC",
+                "SELECT * FROM reservations WHERE user_id = %s AND status NOT IN ('cancelled', 'failed', 'pending') ORDER BY created_at DESC",
                 (int(user_id),),
             )
             return [_to_reservation(row) for row in cur.fetchall()]

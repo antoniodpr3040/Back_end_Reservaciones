@@ -16,12 +16,13 @@ from schemas import (
 )
 from security import get_current_user
 from services import (
-    check_time_slot_conflict,
+    confirm_reservation_record,
     get_user_by_id,
     get_user_reservation_record,
     list_all_active_reservation_records,
     list_user_reservation_records,
     save_reservation_record,
+    try_reserve_slot,
     update_reservation_record,
     update_user_microsoft_tokens,
 )
@@ -276,42 +277,77 @@ async def create_outlook_reservation(
     current_user = get_user_by_id(current_user["id"]) or current_user
     _ensure_microsoft_auth(current_user)
 
-    if reservation.location and check_time_slot_conflict(
-        location=reservation.location,
-        start=reservation.start.isoformat(),
-        end=reservation.end.isoformat(),
-    ):
-        raise HTTPException(
-            status_code=status.HTTP_409_CONFLICT,
-            detail="El espacio ya tiene una reservacion activa en ese horario.",
-        )
-
     reservation_id = reservation.reservation_id or str(uuid4())
-    event_payload = _build_event_payload(reservation)
-    current_user, created_event = await _graph_request(
-        current_user,
-        "POST",
-        "/me/calendar/events",
-        json_body=event_payload,
-    )
 
-    save_reservation_record(
-        {
-            "reservation_id": reservation_id,
-            "user_id": current_user["id"],
-            "user_email": current_user.get("email"),
-            "event_id": created_event["id"],
-            "web_link": created_event.get("webLink"),
-            "title": reservation.title,
-            "description": reservation.description,
-            "start": reservation.start.isoformat(),
-            "end": reservation.end.isoformat(),
-            "timezone": reservation.timezone,
-            "location": reservation.location,
-            "attendees": reservation.attendees,
-            "status": "created",
-        }
-    )
+    # Atomically claim the slot in DB before calling Outlook.
+    # This prevents two simultaneous requests from both passing the conflict check.
+    if reservation.location:
+        slot_claimed = try_reserve_slot(
+            reservation_id=reservation_id,
+            user_id=current_user["id"],
+            user_email=current_user.get("email"),
+            location=reservation.location,
+            start=reservation.start.isoformat(),
+            end=reservation.end.isoformat(),
+            title=reservation.title,
+            description=reservation.description,
+            timezone_str=reservation.timezone,
+            attendees=[str(a) for a in reservation.attendees],
+        )
+        if not slot_claimed:
+            raise HTTPException(
+                status_code=status.HTTP_409_CONFLICT,
+                detail="El espacio ya tiene una reservacion activa en ese horario.",
+            )
+
+    event_payload = _build_event_payload(reservation)
+    try:
+        current_user, created_event = await _graph_request(
+            current_user,
+            "POST",
+            "/me/calendar/events",
+            json_body=event_payload,
+        )
+    except Exception:
+        # Release the claimed slot so others can reserve it
+        if reservation.location:
+            try:
+                update_reservation_record(
+                    reservation_id,
+                    {
+                        "status": "failed",
+                        "cancellation_reason": "Error al crear el evento en Outlook",
+                        "cancelled_at": datetime.now(timezone.utc).isoformat(),
+                    },
+                )
+            except Exception:
+                pass
+        raise
+
+    if reservation.location:
+        confirm_reservation_record(
+            reservation_id,
+            created_event["id"],
+            created_event.get("webLink"),
+        )
+    else:
+        save_reservation_record(
+            {
+                "reservation_id": reservation_id,
+                "user_id": current_user["id"],
+                "user_email": current_user.get("email"),
+                "event_id": created_event["id"],
+                "web_link": created_event.get("webLink"),
+                "title": reservation.title,
+                "description": reservation.description,
+                "start": reservation.start.isoformat(),
+                "end": reservation.end.isoformat(),
+                "timezone": reservation.timezone,
+                "location": reservation.location,
+                "attendees": reservation.attendees,
+                "status": "created",
+            }
+        )
 
     return OutlookReservationResponse(
         reservation_id=reservation_id,

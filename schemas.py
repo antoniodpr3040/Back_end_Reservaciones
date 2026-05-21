@@ -123,7 +123,7 @@ class ReservationRecord(BaseModel):
     reservation_id: str
     user_id: int
     user_email: Optional[EmailStr] = None
-    event_id: str
+    event_id: Optional[str] = None
     web_link: Optional[str] = None
     title: str
     description: Optional[str] = None
